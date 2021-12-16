@@ -12,14 +12,16 @@
     <div id="content"></div>
 
     <script>
-        fetch("https://ci-swapii.herokuapp.com/api/")
-            .then(response => response.text()) // Using .text instead of .json will show all object content 
-            .then(data => {
-                document.getElementById("content").innerText = data;
-            })
+        fetch("https://ci-swapi.herokuapp.com/api/")
+            .then(response => response.text()) // Using .json instead of .text and the specific name of an object on the innerText = data will retrieve that object 
+            .then(data => displayData(data))
             .catch((e) => {
                 console.error("Error:", e);
             });
+
+        function displayData(data) {
+            document.getElementById("content").innerText = data;
+        }
     </script>
 </body>
 
